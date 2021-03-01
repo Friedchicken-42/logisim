@@ -1,5 +1,4 @@
-from component import Component
-from gate import OR, NOT
+from .component import Component
 
 
 class Connection:
@@ -66,20 +65,3 @@ class Board(Component):
                                 c.value = o
 
         return [c.value for c in self.connections if c.id1 == -1]
-
-
-if __name__ == '__main__':
-    NOR = Board(2, 1)
-
-    c1 = OR(2, 1)
-    c2 = NOT(1, 1)
-
-    NOR.add_component(c1)
-    NOR.add_component(c2)
-    NOR.connect(0, 0, 1, 0)
-    NOR.connect(-1, 0, 0, 0)
-    NOR.connect(-1, 1, 0, 1)
-    NOR.connect(1, 0, -1, 0)
-
-    NOR.inputs = [1, 0]
-    NOR.update()

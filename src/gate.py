@@ -1,4 +1,5 @@
-from component import Component
+from .component import Component
+from .board import Board
 
 
 class NOT(Component):
